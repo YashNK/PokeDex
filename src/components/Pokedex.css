@@ -1,0 +1,141 @@
+.main-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    background-color: rgb(7, 7, 49);
+    color: white;
+    width: 100%;
+    height: 100vh;
+}
+
+.title, .title-yellow{
+    display: inline-block;
+    margin: 0;
+    padding: 20px 0px 10px 0px;
+    text-align: center;
+}
+
+.title-yellow{
+    color: rgb(255, 230, 0);
+}
+
+.search-container{
+    width: 100%;
+    text-align: center;
+}
+
+.search-bar{
+    text-align: center;
+    border-radius: 7px;
+    margin: 10px 12px;
+    padding: 10px 80px;
+    display: inline-block;
+    outline: none;
+    border: none;
+}
+
+.search-btn{
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 7px;
+    padding: 10px 80px;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.search-btn:hover{
+    background-color: rgb(49, 48, 110);
+    color: white;
+}
+
+.pokemon-container::-webkit-scrollbar{
+width: 12px;
+}
+
+.pokemon-container::-webkit-scrollbar-thumb{
+background-color: rgb(77, 89, 196);
+border-radius: 1px;
+height: 100px;
+}
+
+.pokemon-container::-webkit-scrollbar-track{
+background-color: rgb(44, 44, 110);
+}
+
+.pokemon-container{
+overflow-y: scroll;
+height: calc(100% - 210px);
+width: 60%;
+margin: 20px;
+border-radius: 10px;
+padding: 20px;
+background-color: rgb(16, 16, 70);
+display: grid;
+grid-gap: 50px;
+grid-template-columns: auto auto auto auto auto;
+grid-template-rows: auto auto auto auto auto auto auto;
+}
+
+.pokemon{
+background-color: rgb(77, 77, 134);
+border-radius: 5px;
+text-align: center;
+transition: 0.3s;
+cursor: pointer;
+}
+
+.pokemon:hover{
+background-color: rgb(91, 91, 148);
+}
+
+.pokemon-image{
+    width: 100px;
+}
+
+.pokecard{
+    width: 30%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    opacity: 0;
+    z-index: -1;
+    border-radius: 10px;
+    background-color: rgb(33, 38, 107);
+    height: 70%;
+    position: absolute;
+    border: 2px solid rgb(255, 251, 0);
+    transition: 0.3s;
+}
+
+.pop-up-img{
+    width: 250px;
+}
+
+.close-btn{
+    cursor: pointer;
+    padding: 10px 40px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.close-btn:hover{
+    background-color: rgb(190, 184, 87);
+    color: white;
+}
+
+.pop-up-abilities{
+}
+
+.ability{
+    background-color: rgb(212, 62, 62);
+    padding: 2px 40px 4px 40px;
+    border-radius: 10px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
