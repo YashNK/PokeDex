@@ -110,14 +110,17 @@ function Pokedex() {
             ))}
         </div>
         <div id='pokecard' className='pokecard'>
+            <div>
+
             <h1 className='pop-up-name'>{popUpName}</h1>
             <img className='pop-up-img' src={popUpImage} alt={popUpName} />
-            <button className='close-btn' onClick={handleClosePopUp}>Close</button>
             <div className='pop-up-abilities'>
                 {popUpAbilities.map((ability, index) => (
                     <h1 className='ability' key={index}>{ability}</h1>
                 ))}
             </div>
+            </div>
+            <button className='close-btn' onClick={handleClosePopUp}>Close</button>
         </div>
     </div>
   );
