@@ -19,7 +19,7 @@ function Pokedex() {
   const [popUpCry, setPopUpCry] = useState('');
   const [sortOrder, setSortOrder] = useState('asc');
   const pokemonContainerRef = useRef(null);
-  const popUpRef = useRef(null); // Create a ref for the pop-up
+  const popUpRef = useRef(null);
 
   const fetchPokemonDetails = async (url, retries = RETRY_LIMIT) => {
     try {
@@ -121,7 +121,7 @@ function Pokedex() {
   };
 
   const handlePokecard = (name, image, abilities, types, cry) => {
-    setPopUpName(name);
+    setPopUpName(name.toUpperCase());
     setPopUpImage(image);
     setPopUpAbilities(abilities);
     setPopUpTypes(types);
@@ -135,6 +135,7 @@ function Pokedex() {
     let card = document.getElementById('pokecard');
     card.style.opacity = '0%';
     card.style.zIndex = -1;
+    setPopUpImage('');
   };
 
   const toggleSortOrder = () => {
@@ -186,26 +187,31 @@ function Pokedex() {
         <div className='pokecard-content'>
           <h1 className='pop-up-name'>{popUpName}</h1>
           <img className='pop-up-img' src={popUpImage} alt={popUpName} />
-          <div className='pop-up-abilities'>
-            {popUpAbilities.map((ability, index) => (
-              <h1 className='ability' key={index}>{ability}</h1>
-            ))}
-          </div>
 
-          <div className='pop-up-types'>
-            {popUpTypes.map((type, index) => (
-              <h1 className='type' key={index}>{type}</h1>
-            ))}
-          </div>
-
-          {popUpCry && (
-            <div>
-              <audio id='pokemon-cry' src={popUpCry} />
-              <button className='play-cry-btn' onClick={() => document.getElementById('pokemon-cry').play()}>
-                Hear Pokémon Cry
-              </button>
+          <div className='pokemon-information-container'>
+            <div className='pop-up-abilities'>
+              <h1 className='abilities-title'>Abilities:</h1>
+              {popUpAbilities.map((ability, index) => (
+                <h1 className='ability' key={index}>{ability}</h1>
+              ))}
             </div>
-          )}
+
+            <div className='pop-up-types'>
+              <h1 className='abilities-title'>Pokemon Type:</h1>
+              {popUpTypes.map((type, index) => (
+                <h1 className='type' key={index}>{type}</h1>
+              ))}
+            </div>
+
+            {popUpCry && (
+              <div>
+                <audio id='pokemon-cry' src={popUpCry} />
+                <button className='play-cry-btn' onClick={() => document.getElementById('pokemon-cry').play()}>
+                  Hear Pokémon Cry
+                </button>
+              </div>
+            )}
+          </div>
         </div>
         <button className='close-btn' onClick={handleClosePopUp}>Close</button>
       </div>
